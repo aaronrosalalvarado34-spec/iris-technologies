@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IRIS Technologies: inteligencia artificial, software y robótica.">
+  <title>IRIS Technologies</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #080808;
+      color: #f5f1e8;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      padding: 22px;
+      border-bottom: 1px solid #5a4520;
+      color: #e6bd65;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+    nav { padding: 15px 22px; }
+    nav a {
+      color: #e6bd65;
+      margin-right: 18px;
+      text-decoration: none;
+    }
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px max(22px, 8vw);
+      background:
+        radial-gradient(ellipse at 80% 30%, #75551e55, transparent 45%);
+    }
+    .etiqueta {
+      color: #e6bd65;
+      letter-spacing: 4px;
+      font-size: 12px;
+    }
+    h1 {
+      font-size: clamp(42px, 8vw, 76px);
+      line-height: 1.05;
+      margin: 20px 0;
+    }
+    h2 { color: #e6bd65; }
+    .dorado { color: #e6bd65; }
+    p { color: #bbb6aa; line-height: 1.8; }
+    .boton {
+      display: inline-block;
+      background: #e6bd65;
+      color: #111;
+      padding: 13px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      width: fit-content;
+      margin-top: 15px;
+    }
+    section { padding: 55px max(22px, 8vw); }
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .tarjeta {
+      background: #121212;
+      border: 1px solid #5a4520;
+      padding: 22px;
+      border-radius: 5px;
+    }
+    footer {
+      padding: 25px;
+      border-top: 1px solid #5a4520;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>IRIS <span class="dorado">TECHNOLOGIES</span></header>
+
+  <nav>
+    <a href="#servicios">Servicios</a>
+    <a href="#vision">Visión</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <main>
+    <div class="hero">
+      <div class="etiqueta">TECNOLOGÍA · CREATIVIDAD · FUTURO</div>
+      <h1>Las ideas de hoy.<br>
+        <span class="dorado">El futuro de mañana.</span>
+      </h1>
+      <p>Exploramos nuevas tecnologías para transformar ideas en proyectos.</p>
+      <a class="boton" href="#servicios">Explorar nuestros servicios ↗</a>
+    </div>
+
+    <section id="servicios">
+      <h2>Nuestras áreas tecnológicas</h2>
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <h3>Inteligencia artificial</h3>
+          <p>Asistentes digitales, automatización e ideas inteligentes.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Software y web</h3>
+          <p>Páginas web, aplicaciones y soluciones digitales.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Robótica</h3>
+          <p>Robots, sensores y sistemas electrónicos experimentales.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Inventos</h3>
+          <p>Diseño de conceptos y creación de prototipos.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="vision">
+      <h2>Nuestra visión</h2>
+      <p>IRIS Technologies comienza como un proyecto para aprender,
+      experimentar y desarrollar soluciones tecnológicas de forma
+      creativa, segura y responsable.</p>
+    </section>
+
+    <section id="contacto">
+      <h2>Construyamos el futuro</h2>
+      <p>¿Tienes una idea tecnológica? Queremos convertirla en un proyecto.</p>
+      <p>Pronto añadiremos nuestros canales oficiales de contacto.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="anio"></span> IRIS Technologies · Innovación sin límites</p>
+  </footer>
+  <script>
+    document.getElementById("anio").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
