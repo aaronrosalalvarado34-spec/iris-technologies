@@ -4,142 +4,556 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="IRIS Technologies: inteligencia artificial, software y robótica.">
-  <title>IRIS Technologies</title>
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="IRIS Technologies: inteligencia artificial, software, robótica e innovación tecnológica. Las ideas de hoy, el futuro de mañana.">
+  <title>IRIS Technologies | El futuro comienza aquí</title>
+
   <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
+    :root {
+      --fondo: #080808;
+      --panel: #101010;
+      --oro: #e6bd65;
+      --oro-claro: #ffe5a0;
+      --texto: #f7f3e9;
+      --gris: #aaa69b;
+      --borde: rgba(230, 189, 101, .24);
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background: #080808;
-      color: #f5f1e8;
-      font-family: Arial, sans-serif;
+      padding: 0;
     }
-    header {
-      padding: 22px;
-      border-bottom: 1px solid #5a4520;
-      color: #e6bd65;
-      letter-spacing: 3px;
-      font-weight: bold;
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
-    nav { padding: 15px 22px; }
-    nav a {
-      color: #e6bd65;
-      margin-right: 18px;
-      text-decoration: none;
+
+    body {
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
-    .hero {
-      min-height: 75vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 50px max(22px, 8vw);
+
+    a { color: inherit; }
+
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--oro-claro);
+      outline-offset: 5px;
+    }
+
+    .fondo-energia {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
       background:
-        radial-gradient(ellipse at 80% 30%, #75551e55, transparent 45%);
+        radial-gradient(ellipse at 80% 15%, #8e641b19, transparent 40%),
+        radial-gradient(ellipse at 5% 60%, #d5a33c0b, transparent 35%),
+        linear-gradient(#ffffff04 1px, transparent 1px),
+        linear-gradient(90deg, #ffffff04 1px, transparent 1px);
+      background-size: auto, auto, 48px 48px, 48px 48px;
     }
+
+    .contenedor {
+      width: min(1120px, 90%);
+      margin-inline: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #080808eF;
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--borde);
+    }
+
+    .barra {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
+
+    .logo span, .oro { color: var(--oro); }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    nav a {
+      color: var(--gris);
+      font-size: 13px;
+      text-decoration: none;
+      transition: color .25s;
+    }
+
+    nav a:hover { color: var(--oro-claro); }
+
+    .hero {
+      min-height: 660px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 35px;
+      padding-top: 75px;
+      padding-bottom: 75px;
+    }
+
     .etiqueta {
-      color: #e6bd65;
-      letter-spacing: 4px;
-      font-size: 12px;
+      display: inline-block;
+      color: var(--oro);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border: 1px solid var(--borde);
+      border-radius: 30px;
+      padding: 7px 13px;
+      margin-bottom: 24px;
     }
+
     h1 {
-      font-size: clamp(42px, 8vw, 76px);
-      line-height: 1.05;
-      margin: 20px 0;
+      font-size: clamp(42px, 6.5vw, 76px);
+      line-height: 1.06;
+      letter-spacing: -2px;
+      margin-bottom: 25px;
     }
-    h2 { color: #e6bd65; }
-    .dorado { color: #e6bd65; }
-    p { color: #bbb6aa; line-height: 1.8; }
+
+    h1 span {
+      color: var(--oro);
+      text-shadow: 0 0 35px #e6bd6526;
+    }
+
+    .hero p, .introduccion {
+      max-width: 570px;
+      color: var(--gris);
+      font-size: 16px;
+    }
+
+    .acciones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
     .boton {
       display: inline-block;
-      background: #e6bd65;
-      color: #111;
-      padding: 13px 20px;
+      padding: 12px 19px;
+      border-radius: 4px;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 4px;
-      width: fit-content;
-      margin-top: 15px;
+      font-size: 13px;
+      transition: transform .25s, box-shadow .25s, background .25s;
     }
-    section { padding: 55px max(22px, 8vw); }
+
+    .boton:hover { transform: translateY(-3px); }
+
+    .boton-principal {
+      background: linear-gradient(110deg, #c99a3e, #ffe5a0);
+      color: #111;
+      box-shadow: 0 0 24px #e6bd6520;
+    }
+
+    .boton-principal:hover {
+      box-shadow: 0 0 32px #e6bd6560;
+    }
+
+    .boton-secundario {
+      border: 1px solid var(--borde);
+      color: var(--oro-claro);
+    }
+
+    .visual {
+      min-height: 380px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      background:
+        radial-gradient(circle at center, #c998301b, transparent 62%),
+        linear-gradient(145deg, #17140e, #090909 65%);
+      box-shadow: inset 0 0 55px #e6bd6508, 0 0 45px #000;
+    }
+
+    .visual::before, .visual::after {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border: 1px solid #e6bd654a;
+      border-radius: 50%;
+      animation: girar 24s linear infinite;
+    }
+
+    .visual::after {
+      width: 190px;
+      height: 190px;
+      border-style: dashed;
+      animation-direction: reverse;
+      animation-duration: 18s;
+    }
+
+    .nucleo {
+      width: 115px;
+      height: 115px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--oro);
+      border-radius: 50%;
+      color: var(--oro-claro);
+      font-size: 36px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      background: radial-gradient(circle, #7b591d55, #090909 75%);
+      box-shadow: 0 0 30px #e6bd6535, inset 0 0 25px #e6bd6520;
+      animation: pulso 3s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    .dato {
+      position: absolute;
+      color: var(--oro);
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .dato.uno { top: 18%; left: 9%; }
+    .dato.dos { right: 8%; bottom: 19%; }
+
+    section { padding: 85px 0; }
+
+    .encabezado-seccion { margin-bottom: 35px; }
+
+    .encabezado-seccion .etiqueta { margin-bottom: 14px; }
+
+    h2 {
+      font-size: clamp(29px, 4vw, 43px);
+      line-height: 1.2;
+      margin-bottom: 13px;
+    }
+
     .tarjetas {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
     }
+
     .tarjeta {
-      background: #121212;
-      border: 1px solid #5a4520;
-      padding: 22px;
-      border-radius: 5px;
+      position: relative;
+      padding: 27px;
+      border: 1px solid var(--borde);
+      border-radius: 7px;
+      background: linear-gradient(145deg, #151515, #0b0b0b);
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+      overflow: hidden;
     }
-    footer {
-      padding: 25px;
-      border-top: 1px solid #5a4520;
+
+    .tarjeta::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 70px;
+      height: 2px;
+      background: var(--oro);
+      box-shadow: 0 0 15px var(--oro);
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-5px);
+      border-color: #e6bd6590;
+      box-shadow: 0 10px 35px #0008;
+    }
+
+    .icono {
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      color: var(--oro-claro);
+      font-size: 19px;
+      margin-bottom: 9px;
+    }
+
+    .tarjeta p, .vision p, .contacto p {
+      color: var(--gris);
+      font-size: 14px;
+    }
+
+    .vision-panel {
+      padding: clamp(25px, 6vw, 55px);
+      border: 1px solid var(--borde);
+      border-radius: 9px;
+      background:
+        radial-gradient(ellipse at 100% 0%, #e6bd6510, transparent 55%),
+        #101010;
+    }
+
+    .principios {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .principios span {
+      color: var(--oro-claro);
+      font-size: 12px;
+      border: 1px solid var(--borde);
+      border-radius: 4px;
+      padding: 7px 12px;
+    }
+
+    .contacto-panel {
       text-align: center;
+      padding: clamp(30px, 6vw, 65px) 20px;
+      border: 1px solid var(--borde);
+      border-radius: 9px;
+      background: radial-gradient(ellipse at center, #85601b18, transparent 70%);
+    }
+
+    .contacto-panel p {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    footer {
+      border-top: 1px solid var(--borde);
+      padding: 25px 0;
+    }
+
+    .pie {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    footer p {
+      color: var(--gris);
+      font-size: 12px;
+    }
+
+    .revelar {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .revelar.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes girar {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes pulso {
+      0%, 100% { box-shadow: 0 0 25px #e6bd6528, inset 0 0 20px #e6bd6518; }
+      50% { box-shadow: 0 0 48px #e6bd6560, inset 0 0 30px #e6bd6535; }
+    }
+
+    @media (max-width: 760px) {
+      .barra {
+        padding: 15px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav { gap: 16px; }
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        padding-top: 75px;
+        padding-bottom: 45px;
+      }
+
+      .visual { min-height: 300px; }
+      section { padding: 60px 0; }
+      .tarjetas { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -1px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+
+      .revelar { opacity: 1; transform: none; }
     }
   </style>
 </head>
-<body>
-  <header>IRIS <span class="dorado">TECHNOLOGIES</span></header>
 
-  <nav>
-    <a href="#servicios">Servicios</a>
-    <a href="#vision">Visión</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+<body>
+  <div class="fondo-energia" aria-hidden="true"></div>
+
+  <header>
+    <div class="contenedor barra">
+      <a class="logo" href="#inicio" aria-label="IRIS Technologies, inicio">
+        IRIS <span>TECHNOLOGIES</span>
+      </a>
+      <nav aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#vision">Visión</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
 
   <main>
-    <div class="hero">
-      <div class="etiqueta">TECNOLOGÍA · CREATIVIDAD · FUTURO</div>
-      <h1>Las ideas de hoy.<br>
-        <span class="dorado">El futuro de mañana.</span>
-      </h1>
-      <p>Exploramos nuevas tecnologías para transformar ideas en proyectos.</p>
-      <a class="boton" href="#servicios">Explorar nuestros servicios ↗</a>
-    </div>
+    <section class="contenedor hero" id="inicio">
+      <div class="revelar">
+        <div class="etiqueta">Sistema de innovación tecnológica</div>
+        <h1>Las ideas de hoy.<br><span>El futuro de mañana.</span></h1>
+        <p>
+          Exploramos la inteligencia artificial, el software y la robótica
+          para convertir ideas creativas en proyectos tecnológicos.
+          El futuro empieza con una idea.
+        </p>
+        <div class="acciones">
+          <a class="boton boton-principal" href="#servicios">Explorar servicios ↗</a>
+          <a class="boton boton-secundario" href="#vision">Conocer IRIS</a>
+        </div>
+      </div>
+
+      <div class="visual revelar" role="img" aria-label="Representación abstracta de un núcleo de inteligencia artificial">
+        <span class="dato uno">IRIS CORE // 01</span>
+        <div class="nucleo">IRIS</div>
+        <span class="dato dos">INNOVATION SYSTEM</span>
+      </div>
+    </section>
 
     <section id="servicios">
-      <h2>Nuestras áreas tecnológicas</h2>
-      <div class="tarjetas">
-        <article class="tarjeta">
-          <h3>Inteligencia artificial</h3>
-          <p>Asistentes digitales, automatización e ideas inteligentes.</p>
-        </article>
-        <article class="tarjeta">
-          <h3>Software y web</h3>
-          <p>Páginas web, aplicaciones y soluciones digitales.</p>
-        </article>
-        <article class="tarjeta">
-          <h3>Robótica</h3>
-          <p>Robots, sensores y sistemas electrónicos experimentales.</p>
-        </article>
-        <article class="tarjeta">
-          <h3>Inventos</h3>
-          <p>Diseño de conceptos y creación de prototipos.</p>
-        </article>
+      <div class="contenedor">
+        <div class="encabezado-seccion revelar">
+          <div class="etiqueta">Nuestras capacidades</div>
+          <h2>Tecnología sin fronteras</h2>
+          <p class="introduccion">
+            Diferentes disciplinas, una misma misión: aprender, crear
+            y desarrollar soluciones para el mundo del mañana.
+          </p>
+        </div>
+
+        <div class="tarjetas">
+          <article class="tarjeta revelar">
+            <div class="icono" aria-hidden="true">◈</div>
+            <h3>Inteligencia artificial</h3>
+            <p>Asistentes digitales, automatización y experiencias inteligentes diseñadas para ayudar a las personas.</p>
+          </article>
+
+          <article class="tarjeta revelar">
+            <div class="icono" aria-hidden="true">⌘</div>
+            <h3>Software y desarrollo web</h3>
+            <p>Páginas web, aplicaciones y herramientas digitales con diseños modernos y adaptables.</p>
+          </article>
+
+          <article class="tarjeta revelar">
+            <div class="icono" aria-hidden="true">⚙</div>
+            <h3>Robótica y electrónica</h3>
+            <p>Robots experimentales, sensores, microcontroladores y sistemas electrónicos.</p>
+          </article>
+
+          <article class="tarjeta revelar">
+            <div class="icono" aria-hidden="true">✧</div>
+            <h3>Inventos y prototipos</h3>
+            <p>Ideas originales, diseño de conceptos y experimentos para explorar nuevas posibilidades tecnológicas.</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="vision">
-      <h2>Nuestra visión</h2>
-      <p>IRIS Technologies comienza como un proyecto para aprender,
-      experimentar y desarrollar soluciones tecnológicas de forma
-      creativa, segura y responsable.</p>
+      <div class="contenedor">
+        <div class="vision-panel revelar">
+          <div class="etiqueta">Nuestra visión</div>
+          <h2>Crear hoy lo que imaginamos para mañana.</h2>
+          <p>
+            IRIS Technologies comienza como un proyecto dedicado al
+            aprendizaje, la experimentación y el desarrollo de ideas.
+            Queremos construir una base sólida en tecnología, actuar
+            responsablemente y convertir cada experiencia en una oportunidad
+            para mejorar.
+          </p>
+          <div class="principios">
+            <span>Innovación</span>
+            <span>Creatividad</span>
+            <span>Aprendizaje</span>
+            <span>Responsabilidad</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="contacto">
-      <h2>Construyamos el futuro</h2>
-      <p>¿Tienes una idea tecnológica? Queremos convertirla en un proyecto.</p>
-      <p>Pronto añadiremos nuestros canales oficiales de contacto.</p>
+    <section id="contacto" class="contacto">
+      <div class="contenedor">
+        <div class="contacto-panel revelar">
+          <div class="etiqueta">Conectemos con el futuro</div>
+          <h2>Todo comienza con una idea.</h2>
+          <p>
+            ¿Tienes una idea tecnológica? IRIS Technologies está construyendo
+            su camino. Pronto añadiremos nuestros canales oficiales de contacto.
+          </p>
+          <div class="acciones" style="justify-content:center">
+            <a class="boton boton-principal" href="#inicio">Volver al inicio ↑</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>© <span id="anio"></span> IRIS Technologies · Innovación sin límites</p>
+    <div class="contenedor pie">
+      <a class="logo" href="#inicio">IRIS <span>TECHNOLOGIES</span></a>
+      <p>© <span id="anio"></span> IRIS Technologies. Proyecto tecnológico en desarrollo.</p>
+    </div>
   </footer>
+
   <script>
     document.getElementById("anio").textContent = new Date().getFullYear();
+
+    const elementos = document.querySelectorAll(".revelar");
+
+    if ("IntersectionObserver" in window) {
+      const observador = new IntersectionObserver((entradas, observer) => {
+        entradas.forEach(entrada => {
+          if (entrada.isIntersecting) {
+            entrada.target.classList.add("visible");
+            observer.unobserve(entrada.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      elementos.forEach(elemento => observador.observe(elemento));
+    } else {
+      elementos.forEach(elemento => elemento.classList.add("visible"));
+    }
   </script>
 </body>
 </html>
+
